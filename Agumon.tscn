@@ -1,0 +1,19 @@
+[gd_scene load_steps=4 format=3 uid="uid://dx5tebblmgtr6"]
+
+[ext_resource type="PackedScene" uid="uid://jy7nooif10lv" path="res://AgumonBlend.tscn" id="1_7qaym"]
+[ext_resource type="Script" path="res://CharacterBody3D.gd" id="2_5pn1s"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_shmdw"]
+radius = 0.406102
+height = 1.70924
+
+[node name="Agumon" type="Node3D"]
+
+[node name="CharacterBody3D" type="CharacterBody3D" parent="."]
+script = ExtResource("2_5pn1s")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="CharacterBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.57407, 0)
+shape = SubResource("CapsuleShape3D_shmdw")
+
+[node name="AgumonBlend" parent="CharacterBody3D" instance=ExtResource("1_7qaym")]

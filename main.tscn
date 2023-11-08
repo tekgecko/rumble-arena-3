@@ -1,0 +1,43 @@
+[gd_scene load_steps=7 format=3 uid="uid://c7k2uhykbeque"]
+
+[ext_resource type="PackedScene" uid="uid://dx5tebblmgtr6" path="res://Agumon.tscn" id="1_sx8m2"]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_jxku1"]
+
+[sub_resource type="Sky" id="Sky_mxmiq"]
+sky_material = SubResource("ProceduralSkyMaterial_jxku1")
+
+[sub_resource type="Environment" id="Environment_x1hmm"]
+background_mode = 2
+sky = SubResource("Sky_mxmiq")
+
+[sub_resource type="BoxMesh" id="BoxMesh_qyk6v"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_f6evt"]
+
+[node name="Node3D" type="Node3D"]
+
+[node name="Agumon" parent="." instance=ExtResource("1_sx8m2")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0, -0.605931, 0)
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(0.993427, 0, 0.114469, 0, 1, 0, -0.114469, 0, 0.993427, 0.665126, 1.91784, 4.33665)
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_x1hmm")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.783585, 0.621285, 0, -0.621285, 0.783585, 3.8603, 2.33789, 0)
+light_color = Color(1, 1, 0.729412, 1)
+light_energy = 1.305
+shadow_enabled = true
+
+[node name="StaticBody3D" type="StaticBody3D" parent="."]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="StaticBody3D"]
+transform = Transform3D(50, 0, 0, 0, 1, 0, 0, 0, 50, 0, -0.389588, 0)
+mesh = SubResource("BoxMesh_qyk6v")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D"]
+transform = Transform3D(50, 0, 0, 0, 50, 0, 0, 0, 50, 0, -24.7211, 0)
+shape = SubResource("BoxShape3D_f6evt")
